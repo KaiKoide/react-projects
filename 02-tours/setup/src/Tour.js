@@ -45,7 +45,7 @@ const Tour = ({ pageData, setPageData }) => {
 
   return (
     <>
-      <div className="grid grid-cols-3">{mappedData}</div>
+      <div className="grid grid-cols-3 px-20">{mappedData}</div>
     </>
   );
 };
