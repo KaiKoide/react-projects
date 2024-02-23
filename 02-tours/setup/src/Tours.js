@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Tour from './Tour';
 
-const Tours = ({ pageData, setPageData }) => {
+const Tours = ({ pageData, handleClick }) => {
   const reloadPage = () => {
     window.location.reload();
-  };
-
-  const handleSetPageData = (newData) => {
-    setPageData(newData);
   };
 
   return (
@@ -17,7 +13,17 @@ const Tours = ({ pageData, setPageData }) => {
           <h2 className="items-center pt-20 border-b-8 inline-block border-green-400 pb-5">
             Our Tours
           </h2>
-          <Tour pageData={pageData} setPageData={handleSetPageData}></Tour>
+          <div className="grid grid-cols-3 px-20">
+            {pageData.map((singleData) => {
+              return (
+                <Tour
+                  key={singleData.id}
+                  {...singleData}
+                  handleClick={handleClick}
+                />
+              );
+            })}
+          </div>
         </div>
       ) : (
         <div className="h-screen flex flex-col items-center">

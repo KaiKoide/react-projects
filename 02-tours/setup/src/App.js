@@ -24,10 +24,18 @@ function App() {
     getPageData();
   }, []);
 
+  const handleClick = (id) => {
+    const newPageData = pageData.filter((singleData) => {
+      console.log(singleData);
+      return singleData.id !== id;
+    });
+    setPageData(newPageData);
+  };
+
   return (
     <div>
       {isLoading ? (
-        <Tours pageData={pageData} setPageData={setPageData}></Tours>
+        <Tours pageData={pageData} handleClick={handleClick} />
       ) : (
         <Loading />
       )}
