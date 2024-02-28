@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Categories = ({ categories }) => {
-  console.log(categories);
-
-  const handleClick = (category) => {
-    console.log(category);
+const Categories = ({ categories, setCategory }) => {
+  const filterMenu = (selectedCategory) => {
+    setCategory(selectedCategory);
   };
 
   return (
@@ -13,8 +11,8 @@ const Categories = ({ categories }) => {
         return (
           <button
             key={category}
-            onClick={() => handleClick(category)}
-            className="btn mx-2 bg-orange-400 text-white border-none shadow-lg hover:bg-orange-600"
+            onClick={() => filterMenu(category)}
+            className="btn uppercase mx-2 bg-orange-400 text-white border-none shadow-lg hover:bg-orange-600"
           >
             {category}
           </button>
