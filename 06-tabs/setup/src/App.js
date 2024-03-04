@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useFetchData from './helper/useFetchData';
+// import useFetchData from './helper/useFetchData';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
@@ -62,15 +62,18 @@ function App() {
         <main>
           <div key={id}>
             <h2>{title}</h2>
-            <p>{company}</p>
+            <span className="bg-gray-300 py-1 px-2 my-2 rounded-md inline-block">
+              {company}
+            </span>
             <p>{dates}</p>
             <div>
               {duties.map((duty, index) => {
                 return (
                   <div
                     key={index}
-                    className="flex justify-center items-center text-lg"
+                    className="flex justify-center items-center gap-6 text-lg"
                   >
+                    <FaAngleDoubleRight className="text-emerald-500 !w-[30px]" />
                     <p>{duty}</p>
                   </div>
                 );
